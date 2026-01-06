@@ -1,0 +1,299 @@
+/* ==========================================
+   INVERTED CHAOS - STYLING
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3em;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.tagline {
+    font-size: 1em;
+    color: #a8b2d1;
+    font-style: italic;
+}
+
+/* Game Wrapper */
+.game-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Chaos Meter */
+.chaos-meter-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.meter-label {
+    font-size: 0.9em;
+    color: #a8b2d1;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.meter-bar {
+    width: 100%;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #4facfe;
+    position: relative;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4facfe 0%, #f093fb 50%, #ff6b6b 100%);
+    transition: width 0.3s ease, background 0.3s ease;
+    border-radius: 15px;
+}
+
+.meter-value {
+    margin-top: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4facfe;
+}
+
+/* Canvas */
+#gameCanvas {
+    display: block;
+    margin: 0 auto 20px;
+    background: #0a0e27;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+    max-width: 100%;
+    height: auto;
+}
+
+/* Controls Info */
+.controls-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.controls-info h3 {
+    text-align: center;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.key {
+    background: #4facfe;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #0a0e27;
+}
+
+.arrow {
+    color: #f093fb;
+}
+
+.result {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.tip {
+    text-align: center;
+    color: #a8b2d1;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Reset Button */
+.reset-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #ff6b6b 0%, #f093fb 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(240, 147, 251, 0.5);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+    animation: modalAppear 0.5s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.win-message {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.play-again-btn {
+    padding: 15px 40px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.play-again-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Chaos Warning */
+.chaos-warning {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+    animation: warningPulse 1s infinite;
+    z-index: 999;
+}
+
+.chaos-warning.hidden {
+    display: none;
+}
+
+@keyframes warningPulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .game-wrapper {
+        padding: 20px;
+    }
+
+    .control-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
