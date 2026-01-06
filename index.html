@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverted Chaos - Sliding Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>INVERTED CHAOS</h1>
+            <p class="tagline">Order creates chaos. Chaos creates order.</p>
+        </header>
+
+        <div class="game-wrapper">
+            <!-- Chaos Meter -->
+            <div class="chaos-meter-container">
+                <div class="meter-label">CHAOS METER</div>
+                <div class="meter-bar">
+                    <div id="chaosFill" class="meter-fill"></div>
+                </div>
+                <div id="chaosValue" class="meter-value">0%</div>
+            </div>
+
+            <!-- Canvas Game Area -->
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+            <!-- Controls Info -->
+            <div class="controls-info">
+                <h3>⚠️ INVERTED CONTROLS ⚠️</h3>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <span class="key">↑</span>
+                        <span class="arrow">→</span>
+                        <span class="result">Move DOWN</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">↓</span>
+                        <span class="arrow">→</span>
+                        <span class="result">Move UP</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">←</span>
+                        <span class="arrow">→</span>
+                        <span class="result">Move RIGHT</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">→</span>
+                        <span class="arrow">→</span>
+                        <span class="result">Move LEFT</span>
+                    </div>
+                </div>
+                <p class="tip">💡 Move quickly to reduce chaos!</p>
+            </div>
+
+            <!-- Reset Button -->
+            <button id="resetBtn" class="reset-btn">Reset Game</button>
+        </div>
+
+        <!-- Win Modal -->
+        <div id="winModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🎯 YOU WIN! 🎯</h2>
+                <p class="win-message">Order creates chaos.<br>Chaos creates order.</p>
+                <button id="playAgainBtn" class="play-again-btn">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Chaos Warning -->
+        <div id="chaosWarning" class="chaos-warning hidden">
+            <span>⚠️ CHAOS RISING ⚠️</span>
+        </div>
+    </div>
+
+    <!-- Load JavaScript files in order -->
+    <script src="utils.js"></script>
+    <script src="chaos.js"></script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
